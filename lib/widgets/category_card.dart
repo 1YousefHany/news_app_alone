@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'custom_text.dart';
+
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
     super.key,
@@ -20,11 +22,12 @@ class CategoryCard extends StatelessWidget {
         ),
       ),
       child: const Center(
-          child: Text(
-            'Business',
-            style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16),
-          )),
+          child:
+          CustomText(text: 'Business',color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500,
+          )
+      ),
     );
   }
 }
+
+
