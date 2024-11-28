@@ -2,5 +2,5 @@ class CategoryModel {
  final String image;
  final String text;
 
-  CategoryModel({required this.image, required this.text});
+  const CategoryModel({required this.image, required this.text});
 }
