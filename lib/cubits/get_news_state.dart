@@ -8,12 +8,12 @@ final class GetNewsInitial extends GetNewsState {}
 final class GetNewsLoading extends GetNewsState {}
 
 final class GetNewsSuccess extends GetNewsState {
- final List<ArticleModel> news ;
+ final List<ArticleModel> articles ;
 
-  GetNewsSuccess(this.news);
+  GetNewsSuccess(this.articles);
 }
 
-final class GetNewsFailureState {
+final class GetNewsFailureState extends GetNewsState{
   final String errMessage ;
 
   GetNewsFailureState(this.errMessage);

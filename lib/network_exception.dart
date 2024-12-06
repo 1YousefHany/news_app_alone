@@ -5,7 +5,7 @@ class NetWorkException {
   final String message ;
 
   static handleNetWorkException (DioException e){
-    if (e.type == DioExceptionType.connectionTimeout) {
+    if (e.type == DioExceptionType.connectionTimeout || e.type == DioExceptionType.sendTimeout) {
       return NetWorkException(
           'Connection Timeout : Please check your internet connection.');
     } else if (e.type == DioExceptionType.connectionError) {
@@ -14,7 +14,7 @@ class NetWorkException {
     } else if (e.type == DioExceptionType.receiveTimeout) {
       return NetWorkException(
           'Server Timeout : The server is taking too long to respond.');
-    } else if (e.type == DioExceptionType.badResponse) {
+    }  else if (e.type == DioExceptionType.badResponse) {
       return NetWorkException(
           'Bad Response : ${e.response?.statusCode} : Invalid data received.');
     } else {
@@ -22,7 +22,6 @@ class NetWorkException {
           'Unknown error : Something unexpected happened.');
     }
   }
-
 
   NetWorkException(this.message);
 
