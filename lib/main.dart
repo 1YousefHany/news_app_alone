@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app_alone/views/home_view.dart';
 
 
-void main(){
-
+void main()async{
   runApp(const NewsAppAlone());
 }
 class NewsAppAlone extends StatelessWidget {
