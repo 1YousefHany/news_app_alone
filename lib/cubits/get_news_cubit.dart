@@ -11,7 +11,6 @@ class GetNewsCubit extends Cubit<GetNewsState> {
 
   fetchNews() async{
     emit(GetNewsLoading());
-
     try{
     List<ArticleModel> articles = await NewsService(Dio()).getTopHeadLines();
     emit(GetNewsSuccess(articles));

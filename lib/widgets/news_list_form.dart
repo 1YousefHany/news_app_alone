@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_alone/constants.dart';
+import 'package:news_app_alone/models/article_model.dart';
 
 import 'custom_text.dart';
 
 class NewsListForm extends StatelessWidget {
-  const NewsListForm({super.key});
+  const NewsListForm({super.key, required this.article});
 
+  final ArticleModel article ;
   @override
   Widget build(BuildContext context) {
+    print("Building NewsListForm for article: ${article.title}");
     return Padding(
       padding: const EdgeInsets.only(top: 24),
       child: Column(
@@ -16,8 +20,8 @@ class NewsListForm extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                'assets/images/business2.jpg',
+              child: Image.network(
+                article.image ?? kNoImage,
                 fit: BoxFit.fill,
               ),
             ),
@@ -25,9 +29,9 @@ class NewsListForm extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const CustomText(
-            text:
-            'The puzzle you are looking for its place, life despite all the distance you travel and for it, but we are not aware of the secret that will lead us to salvation, to the meaning of becoming people nor to face it together and the chosen firmness,',
+           CustomText(
+
+            text: article.title,
             fontSize: 18,
             fontWeight: FontWeight.w500,
             maxLines: 2,
@@ -36,9 +40,9 @@ class NewsListForm extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          const CustomText(
+           CustomText(
             text:
-            'اللغز الذي تبحث عن مكانه، الحياة رغم كل المسافة التي تقطعها ولأجله، ولكننا غير مدركين السر الذي',
+           article.subtitle ?? '',
             maxLines: 2,
             color: Colors.grey,
             textOverflow: TextOverflow.ellipsis,

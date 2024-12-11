@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 
 class AppBarTitle extends StatelessWidget {
   const AppBarTitle({
@@ -18,7 +20,7 @@ class AppBarTitle extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
             Text('News'),
-              Text('Cloud',style: TextStyle(color: Color(0xffFFCF0A),
+              Text('Cloud',style: TextStyle(color: kPrimaryColor,
               ),
               ),
     ]),

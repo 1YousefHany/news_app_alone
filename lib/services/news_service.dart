@@ -14,8 +14,9 @@ class NewsService {
 
       List<dynamic> articles = response.data['articles'];
 
-      return articles.map((article) => ArticleModel.fromJson(article)).toList();
+    List<ArticleModel>  articlesList = articles.map((article) => ArticleModel.fromJson(article)).toList();
 
+    return articlesList;
     } on DioException catch (e) {
       throw (NetWorkException.handleNetWorkException(e));
     } catch (e) {
