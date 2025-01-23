@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_alone/constants.dart';
+import 'package:news_app_alone/helper/constants.dart';
 import 'package:news_app_alone/models/article_model.dart';
 
 import 'custom_text.dart';
@@ -10,7 +10,6 @@ class NewsListForm extends StatelessWidget {
   final ArticleModel article ;
   @override
   Widget build(BuildContext context) {
-    print("Building NewsListForm for article: ${article.title}");
     return Padding(
       padding: const EdgeInsets.only(top: 24),
       child: Column(

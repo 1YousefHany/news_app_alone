@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_alone/cubits/get_news_cubit.dart';
-import 'package:news_app_alone/simple_bloc_observer.dart';
+import 'package:news_app_alone/helper/simple_bloc_observer.dart';
 import 'package:news_app_alone/views/home_view.dart';
 
 

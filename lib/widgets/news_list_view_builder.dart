@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app_alone/constants.dart';
+import 'package:news_app_alone/helper/constants.dart';
 import 'package:news_app_alone/cubits/get_news_cubit.dart';
 import 'package:news_app_alone/widgets/news_list_view.dart';
 
@@ -27,7 +27,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
         if(state is GetNewsLoading){
           return const CustomCircularIndicator();
         } else if(state is GetNewsSuccess){
-          print('articles : ${state.articles}');
+
         return  NewsListView(articles: state.articles,
         );
         }else if(state is GetNewsNetWorkFailure){

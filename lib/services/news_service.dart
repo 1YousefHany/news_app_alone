@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:news_app_alone/models/article_model.dart';
-import 'package:news_app_alone/network_exception.dart';
+import 'package:news_app_alone/helper/network_exception.dart';
 
 class NewsService {
   final Dio dio;
