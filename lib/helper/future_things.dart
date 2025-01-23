@@ -3,5 +3,8 @@
 
 // black and white theme ;
 
-//search ? ;
+//search ;
 
+//refresh ;
+
+// program cache ;

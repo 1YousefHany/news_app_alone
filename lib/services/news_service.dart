@@ -19,7 +19,7 @@ class NewsService {
 
     return articlesList;
     } on DioException catch (e) {
-      throw (NetWorkException.handleNetWorkException(e));
+     throw NetWorkException.handleNetWorkException(e);
     } catch (e) {
       throw Exception('UnExpected Error occurred: ${e.runtimeType} , Error is :${e.toString()}');
     }

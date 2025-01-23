@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app_alone/cubits/get_news_cubit.dart';
 import 'package:news_app_alone/models/category_model.dart';
 import 'package:news_app_alone/views/categories_view.dart';
-
 import 'custom_text.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -16,8 +17,11 @@ class CategoryCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) {
-            return  CategoriesView(appBarTitle: categoryModel.text,
+          MaterialPageRoute(
+              builder: (context) {
+              return  BlocProvider.value(value: BlocProvider.of<GetNewsCubit>(context),
+                child:CategoriesView(appBarTitle: categoryModel.text,
+                )
             );
           }),
         );

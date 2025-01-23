@@ -12,6 +12,7 @@ class HandleFailureState extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(top:180),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           spacing: 12,
           children: [
             CustomText(text: message),

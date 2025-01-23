@@ -1,29 +1,33 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
-class NetWorkException {
+class NetWorkException implements Exception{
 
   final String message ;
+  final DioExceptionType type;
 
   static handleNetWorkException (DioException e){
+    debugPrint(e.type.toString());
+
     if (e.type == DioExceptionType.connectionTimeout || e.type == DioExceptionType.sendTimeout) {
-      return NetWorkException(
-          'Connection Timeout : Please check your internet connection.');
+      throw NetWorkException(
+          'Connection Timeout : Please check your internet connection.',type: e.type);
     } else if (e.type == DioExceptionType.connectionError) {
-      return NetWorkException(
-          'Connection Error : Please check your internet connection.');
+      throw NetWorkException(
+          'Connection Error : Please check your internet connection.',type: e.type);
     } else if (e.type == DioExceptionType.receiveTimeout) {
-      return NetWorkException(
-          'Server Timeout : The server is taking too long to respond.');
+      throw NetWorkException(
+          'Server Timeout : The server is taking too long to respond.',type: e.type);
     }  else if (e.type == DioExceptionType.badResponse) {
-      return NetWorkException(
-          'Bad Response : ${e.response?.statusCode} : Invalid data received.');
+      throw NetWorkException(
+          'Bad Response : ${e.response?.statusCode} : Invalid data received.',type: e.type);
     } else {
-      return NetWorkException(
-          'Unknown error : Something unexpected happened.');
+      throw NetWorkException(
+          'Unknown error : Something unexpected happened.',type: e.type);
     }
   }
 
-  NetWorkException(this.message);
+  NetWorkException(this.message, {required this.type});
 
   @override
   String toString() => message;

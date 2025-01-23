@@ -31,10 +31,12 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
           );
         } else if (state is GetNewsNetWorkFailure) {
           debugPrint(state.errMessage);
-          return const HandleFailureState(message: 'Check ur Internet and try again!',);
+          return  HandleFailureState(message: state.errMessage,
+          );
         } else if (state is GetNewsFailureState){
           debugPrint(state.errMessage);
-          return const HandleFailureState(message: 'unExpected Error , Please try later!',);
+          return  HandleFailureState(message: state.errMessage,
+          );
         }
         else{
           return const SliverToBoxAdapter(child:  Text('unExpected Error , please try later!'));
