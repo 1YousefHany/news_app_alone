@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:news_app_alone/helper/constants.dart';
 import 'package:news_app_alone/models/article_model.dart';
 import 'package:news_app_alone/helper/network_exception.dart';
 
@@ -10,7 +11,7 @@ class NewsService {
   Future<List<ArticleModel>> getTopHeadLines() async {
     try {
       Response response = await dio.get(
-          'https://newsapi.org/v2/top-headlines?country=us&apiKey=cbb5232f0fef425480b5e2e2ac618019&category=general');
+          'https://$kTopHeadLinePath?country=us&apiKey=$kApiKey&category=general');
 
       List<dynamic> articles = response.data['articles'];
 

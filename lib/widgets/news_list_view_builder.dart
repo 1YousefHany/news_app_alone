@@ -30,9 +30,14 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
           return  NewsListView(articles: state.articles,
           );
         } else if (state is GetNewsNetWorkFailure) {
+          debugPrint(state.errMessage);
           return const HandleFailureState(message: 'Check ur Internet and try again!',);
-        } else {
+        } else if (state is GetNewsFailureState){
+          debugPrint(state.errMessage);
           return const HandleFailureState(message: 'unExpected Error , Please try later!',);
+        }
+        else{
+          return const SliverToBoxAdapter(child:  Text('unExpected Error , please try later!'));
         }
       },
     );

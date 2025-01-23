@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: const AppBarTitle(),
+        title: const AppBarTitle(title1: 'News',title2: 'Cloud',isCenter: true,),
       ),
       body: const Padding(
         padding:  EdgeInsets.all(16),
