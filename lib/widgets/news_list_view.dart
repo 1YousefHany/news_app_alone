@@ -8,7 +8,6 @@ class NewsListView extends StatelessWidget {
   final List<ArticleModel> articles;
   @override
   Widget build(BuildContext context) {
-    print("Building NewsListForm for article: ${articles[0].title}");
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         childCount: articles.length,

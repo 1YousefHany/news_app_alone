@@ -38,8 +38,5 @@ class GetNewsCubit extends Cubit<GetNewsState> {
         default:
           emit(GetNewsFailureState(e.toString()));
       }
-
-
-    }
   }
-
+}
