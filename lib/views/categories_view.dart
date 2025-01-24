@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app_alone/cubits/get_news_cubit.dart';
 import 'package:news_app_alone/widgets/app_bar_title.dart';
-import 'package:news_app_alone/widgets/custom_circular_indicator.dart';
-import 'package:news_app_alone/widgets/handle_network_failure.dart';
-import 'package:news_app_alone/widgets/news_list_view.dart';
+import 'package:news_app_alone/widgets/news_list_view_builder.dart';
 
 class CategoriesView extends StatefulWidget {
   const CategoriesView({super.key, required this.appBarTitle});
@@ -16,38 +12,23 @@ class CategoriesView extends StatefulWidget {
 }
 
 class _CategoriesViewState extends State<CategoriesView> {
-  @override
-  void initState() {
-    BlocProvider.of<GetNewsCubit>(context).fetchNews();
-    super.initState();
-  }
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
+        forceMaterialTransparency: true,
         centerTitle: true,
-        title: AppBarTitle(title2: widget.appBarTitle,isCenter: false,
+        title: AppBarTitle(title2: widget.appBarTitle,
+          isCenter: false,
         ),
       ),
-      body: BlocBuilder<GetNewsCubit, GetNewsState>(
-        builder: (context, state) {
-          if (state is GetNewsLoading) {
-            return const CustomCircularIndicator();
-          }
-          else if (state is GetNewsSuccess) {
-            return  NewsListView(articles: state.articles,
-            );
-          } else if (state is GetNewsNetWorkFailure) {
-            debugPrint(state.errMessage);
-            return const HandleFailureState(message: 'Check ur Internet and try again!',);
-          } else if (state is GetNewsFailureState){
-            debugPrint(state.errMessage);
-            return const HandleFailureState(message: 'unExpected Error , Please try later!',);
-          }
-          else{
-            return const SliverToBoxAdapter(child:  Text('unExpected Error , please try later!'));
-          }
-        },
+      body: const CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding:  EdgeInsets.all(16),
+              sliver: NewsListViewBuilder())
+        ],
       ),
     );
   }

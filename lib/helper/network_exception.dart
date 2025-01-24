@@ -11,13 +11,13 @@ class NetWorkException implements Exception{
 
     if (e.type == DioExceptionType.connectionTimeout || e.type == DioExceptionType.sendTimeout) {
       throw NetWorkException(
-          'Connection Timeout : Please check your internet connection.',type: e.type);
+          'Please check your internet connection.',type: e.type);
     } else if (e.type == DioExceptionType.connectionError) {
       throw NetWorkException(
-          'Connection Error : Please check your internet connection.',type: e.type);
+          'Please check your internet connection.',type: e.type);
     } else if (e.type == DioExceptionType.receiveTimeout) {
       throw NetWorkException(
-          'Server Timeout : The server is taking too long to respond.',type: e.type);
+          'The server is taking too long to respond.',type: e.type);
     }  else if (e.type == DioExceptionType.badResponse) {
       throw NetWorkException(
           'Bad Response : ${e.response?.statusCode} : Invalid data received.',type: e.type);

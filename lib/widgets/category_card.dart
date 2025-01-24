@@ -18,12 +18,11 @@ class CategoryCard extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-              builder: (context) {
-              return  BlocProvider.value(value: BlocProvider.of<GetNewsCubit>(context),
-                child:CategoriesView(appBarTitle: categoryModel.text,
-                )
-            );
-          }),
+              builder: (context) => BlocProvider(
+                create: (context) => GetNewsCubit(),
+                child: CategoriesView(appBarTitle: categoryModel.text),
+              )
+          ),
         );
       },
       child: Padding(
