@@ -6,8 +6,9 @@ import 'package:news_app_alone/widgets/custom_text.dart';
 import '../helper/constants.dart';
 
 class CustomRetryButton extends StatelessWidget {
-  const CustomRetryButton({super.key});
+  const CustomRetryButton({super.key, required this.categoryType});
 
+  final String categoryType ;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,7 +16,7 @@ class CustomRetryButton extends StatelessWidget {
       width: 150,
       child: ElevatedButton(
         onPressed: () {
-          BlocProvider.of<GetNewsCubit>(context).fetchNews();
+          BlocProvider.of<GetNewsCubit>(context).fetchNews(categoryType: categoryType);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black,

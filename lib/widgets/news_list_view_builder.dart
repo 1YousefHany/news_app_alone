@@ -6,8 +6,9 @@ import 'package:news_app_alone/widgets/handle_network_failure.dart';
 import 'package:news_app_alone/widgets/news_list_view.dart';
 
 class NewsListViewBuilder extends StatefulWidget {
-  const NewsListViewBuilder({super.key});
+  const NewsListViewBuilder({super.key,  this.categoryType = 'general'});
 
+  final String categoryType ;
   @override
   State<NewsListViewBuilder> createState() => _NewsListViewBuilderState();
 }
@@ -15,7 +16,7 @@ class NewsListViewBuilder extends StatefulWidget {
 class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
   @override
   void initState() {
-    BlocProvider.of<GetNewsCubit>(context).fetchNews();
+    BlocProvider.of<GetNewsCubit>(context).fetchNews(categoryType: widget.categoryType);
     super.initState();
   }
 
@@ -31,11 +32,11 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
           );
         } else if (state is GetNewsNetWorkFailure) {
           debugPrint(state.errMessage);
-          return  HandleFailureState(message: state.errMessage,
+          return  HandleFailureState(message: state.errMessage,categoryType: widget.categoryType,
           );
         } else if (state is GetNewsFailureState){
           debugPrint(state.errMessage);
-          return  HandleFailureState(message: state.errMessage,
+          return  HandleFailureState(message: state.errMessage,categoryType: widget.categoryType,
           );
         }
         else{

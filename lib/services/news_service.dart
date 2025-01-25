@@ -8,10 +8,10 @@ class NewsService {
 
   NewsService(this.dio);
 
-  Future<List<ArticleModel>> getTopHeadLines() async {
+  Future<List<ArticleModel>> getTopHeadLines(String categoryType) async {
     try {
       Response response = await dio.get(
-          'https://$kTopHeadLinePath?country=us&apiKey=$kApiKey&category=general');
+          'https://$kTopHeadLinePath?country=us&apiKey=$kApiKey&category=$categoryType');
 
       List<dynamic> articles = response.data['articles'];
 

@@ -10,10 +10,10 @@ part 'get_news_state.dart';
 class GetNewsCubit extends Cubit<GetNewsState> {
   GetNewsCubit() : super(GetNewsInitial());
 
-  fetchNews() async {
+  fetchNews({required String categoryType}) async {
     emit(GetNewsLoading());
     try {
-      List<ArticleModel> articles = await NewsService(Dio()).getTopHeadLines();
+      List<ArticleModel> articles = await NewsService(Dio()).getTopHeadLines(categoryType);
       emit(GetNewsSuccess(articles));
     } on NetWorkException catch (e) {
       handleFailureStates(e);
