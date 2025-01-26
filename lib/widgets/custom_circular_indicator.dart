@@ -7,14 +7,12 @@ class CustomCircularIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SliverToBoxAdapter(
-      child:  SizedBox(
-        height: 450,
-        child: Center(
-          child:  CircularProgressIndicator(
-           strokeWidth: 5,
-            color: kPrimaryColor,
-          ),
+    return const SizedBox(
+      height: 450,
+      child: Center(
+        child:  CircularProgressIndicator(
+         strokeWidth: 5,
+          color: kPrimaryColor,
         ),
       ),
     );

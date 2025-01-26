@@ -25,7 +25,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
     return BlocBuilder<GetNewsCubit, GetNewsState>(
       builder: (context, state) {
         if (state is GetNewsLoading) {
-          return const CustomCircularIndicator();
+          return const SliverToBoxAdapter(child:  CustomCircularIndicator());
        }
         else if (state is GetNewsSuccess) {
           return  NewsListView(articles: state.articles,

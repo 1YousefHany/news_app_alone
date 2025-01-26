@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_alone/helper/constants.dart';
 import 'package:news_app_alone/models/article_model.dart';
+import 'package:news_app_alone/widgets/image_handle.dart';
 
 import 'custom_text.dart';
 
@@ -17,19 +17,12 @@ class NewsListForm extends StatelessWidget {
           SizedBox(
             height: 220,
             width: MediaQuery.of(context).size.width,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                article.image ?? kNoImage,
-                fit: BoxFit.fill,
-              ),
-            ),
+            child: ImageHandle(article: article),
           ),
           const SizedBox(
             height: 16,
           ),
            CustomText(
-
             text: article.title,
             fontSize: 18,
             fontWeight: FontWeight.w500,
@@ -53,3 +46,5 @@ class NewsListForm extends StatelessWidget {
     );
   }
 }
+
+
