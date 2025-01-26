@@ -25,30 +25,30 @@ class ImageHandle extends StatelessWidget {
             : CachedNetworkImage(
                 imageUrl: article.image!,
                 placeholder: (context, url) => const CustomCircularIndicator(),
-                errorWidget: (context, url, error) => FutureBuilder<void>(
-                    future: _retryLoadingImage(url),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const CustomCircularIndicator();
-                      } else if (snapshot.hasError) {
-                        return const Icon(
-                          Icons.error,
-                          color: Colors.red,
-                        );
-                      } else {
-                        return CachedNetworkImage(imageUrl: url);
-                      }
-                    }),
-                cacheManager: CacheManager(Config('imageCache',
-                    stalePeriod: const Duration(days: 5),
-                    maxNrOfCacheObjects: 50),
+                errorWidget: (context, url, error) => handleErrWidget(url),
+                cacheManager: CacheManager(
+                  Config('imageCache',
+                      stalePeriod: const Duration(days: 5),
+                      maxNrOfCacheObjects: 50),
                 ),
-              )
-        // Image.network(
-        //   article.image ?? kNoImage,
-        //   fit: BoxFit.fill,
-        // ),
-        );
+              ));
+  }
+
+  FutureBuilder<void> handleErrWidget(String url) {
+    return FutureBuilder<void>(
+        future: _retryLoadingImage(url),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const CustomCircularIndicator();
+          } else if (snapshot.hasError) {
+            return const Icon(
+              Icons.error,
+              color: Colors.red,
+            );
+          } else {
+            return CachedNetworkImage(imageUrl: url);
+          }
+        });
   }
 
   Future<void> _retryLoadingImage(String url) async {
