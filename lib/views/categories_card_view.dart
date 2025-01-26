@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_alone/widgets/custom_app_bar.dart';
 import 'package:news_app_alone/widgets/news_list_view_builder.dart';
 
 class CategoriesCardView extends StatefulWidget {
@@ -14,15 +15,7 @@ class _CategoriesCardViewState extends State<CategoriesCardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          widget.appBarTitle,
-          style:  const TextStyle(
-            fontSize: 24,
-              fontFamily: 'Playfair Display',
-          ),
-        ),
-      ),
+      appBar: CustomAppBar(appBarTitle: widget.appBarTitle),
       body: CustomScrollView(
         slivers: [
           SliverPadding(
@@ -36,3 +29,4 @@ class _CategoriesCardViewState extends State<CategoriesCardView> {
     );
   }
 }
+

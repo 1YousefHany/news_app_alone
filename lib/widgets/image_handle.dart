@@ -34,6 +34,7 @@ class ImageHandle extends StatelessWidget {
               ));
   }
 
+
   FutureBuilder<void> handleErrWidget(String url) {
     return FutureBuilder<void>(
         future: _retryLoadingImage(url),

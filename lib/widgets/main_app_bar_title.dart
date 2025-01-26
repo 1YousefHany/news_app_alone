@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../helper/constants.dart';
 
-class AppBarTitle extends StatelessWidget {
-  const AppBarTitle({super.key,});
+class MainAppBarTitle extends StatelessWidget {
+  const MainAppBarTitle({super.key,});
 
 
 
