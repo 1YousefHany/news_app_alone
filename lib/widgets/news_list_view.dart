@@ -15,7 +15,10 @@ class NewsListView extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const NewsWebView()));
+              MaterialPageRoute(
+                builder: (context) => NewsWebView(context: context, url: articles[index].url),
+              ),
+            );
           },
           child: NewsListForm(
             article: articles[index],
