@@ -9,7 +9,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: MainAppBar(),
+      appBar: MainAppBar(mainAxisAlignment: MainAxisAlignment.center,
+      ),
       body:  Padding(
         padding:  EdgeInsets.all(16),
         child:  CustomScrollView(
