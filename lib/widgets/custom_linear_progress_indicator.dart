@@ -17,7 +17,7 @@ class _CustomLinearProgressIndicatorState extends State<CustomLinearProgressIndi
     return  LinearProgressIndicator(
       color: kPrimaryColor,
       value: widget.loadingProgress / 100,
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).progressIndicatorTheme.color ?? Colors.black,
     );
   }
 }

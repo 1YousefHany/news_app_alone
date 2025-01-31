@@ -5,7 +5,8 @@ import '../helper/constants.dart';
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({
     super.key,
-    this.bottom,  this.mainAxisAlignment = MainAxisAlignment.start,
+    this.bottom,
+    this.mainAxisAlignment = MainAxisAlignment.start,
   });
   final PreferredSizeWidget? bottom;
   final MainAxisAlignment mainAxisAlignment;
@@ -14,19 +15,21 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       bottom: bottom,
       forceMaterialTransparency: true,
-      title:  DefaultTextStyle(
+      title: DefaultTextStyle(
         style: const TextStyle(
           fontSize: 24,
           fontFamily: 'Playfair Display',
           color: Colors.black,
           fontWeight: FontWeight.w600,
         ),
-        child: Row(
-            mainAxisAlignment: mainAxisAlignment,
-            children: const [
-          Text('News'
-          ),
+        child: Row(mainAxisAlignment: mainAxisAlignment, children: [
           Text(
+            'News',
+            style: TextStyle(
+                color: Theme.of(context).textTheme.titleLarge!.color ?? Colors.black
+            ),
+          ),
+        const  Text(
             'Cloud',
             style: TextStyle(
               color: kPrimaryColor,
