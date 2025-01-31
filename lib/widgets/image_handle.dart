@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:http/http.dart';
+import 'package:news_app_alone/helper/constants.dart';
 import 'package:news_app_alone/models/article_model.dart';
 import 'package:news_app_alone/widgets/custom_circular_indicator.dart';
 import 'package:retry/retry.dart';
@@ -21,7 +22,11 @@ class ImageHandle extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: article.image == null || article.image!.isEmpty
-            ? const Icon(Icons.error)
+            ? const Icon(
+                Icons.error,
+                color: kPrimaryColor,
+                size: 50,
+              )
             : CachedNetworkImage(
                 imageUrl: article.image!,
                 placeholder: (context, url) => const CustomCircularIndicator(),
@@ -31,9 +36,9 @@ class ImageHandle extends StatelessWidget {
                       stalePeriod: const Duration(days: 5),
                       maxNrOfCacheObjects: 50),
                 ),
-              ));
+              ),
+    );
   }
-
 
   FutureBuilder<void> handleErrWidget(String url) {
     return FutureBuilder<void>(
@@ -44,7 +49,7 @@ class ImageHandle extends StatelessWidget {
           } else if (snapshot.hasError) {
             return const Icon(
               Icons.error,
-              color: Colors.red,
+              color: kPrimaryColor,
             );
           } else {
             return CachedNetworkImage(imageUrl: url);

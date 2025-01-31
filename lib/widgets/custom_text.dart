@@ -13,7 +13,7 @@ class CustomText extends StatelessWidget {
     return  Text( text,
       maxLines: maxLines,
       style: TextStyle(
-          color: color ?? Colors.black,
+        color: color,
           fontSize: fontSize ?? 14,
           fontWeight: fontWeight ?? FontWeight.w400,
         overflow: textOverflow

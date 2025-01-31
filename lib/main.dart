@@ -17,6 +17,8 @@ class NewsAppAlone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      theme: ThemeData.dark(useMaterial3: false),
+      themeMode: ThemeMode.dark,
       home: BlocProvider(
         create: (context) => GetNewsCubit(),
         child: const HomeView(),

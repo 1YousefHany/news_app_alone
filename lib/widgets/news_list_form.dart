@@ -7,7 +7,7 @@ import 'custom_text.dart';
 class NewsListForm extends StatelessWidget {
   const NewsListForm({super.key, required this.article});
 
-  final ArticleModel article ;
+  final ArticleModel article;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,7 +22,7 @@ class NewsListForm extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-           CustomText(
+          CustomText(
             text: article.title,
             fontSize: 18,
             fontWeight: FontWeight.w500,
@@ -32,9 +32,8 @@ class NewsListForm extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-           CustomText(
-            text:
-           article.subtitle ?? '',
+          CustomText(
+            text: article.subtitle ?? '',
             maxLines: 2,
             color: Colors.grey,
             textOverflow: TextOverflow.ellipsis,
@@ -46,5 +45,3 @@ class NewsListForm extends StatelessWidget {
     );
   }
 }
-
-

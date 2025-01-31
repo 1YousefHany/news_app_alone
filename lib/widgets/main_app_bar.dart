@@ -21,9 +21,11 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: Colors.black,
           fontWeight: FontWeight.w600,
         ),
-        child: Row(mainAxisAlignment: mainAxisAlignment,
+        child: Row(
+            mainAxisAlignment: mainAxisAlignment,
             children: const [
-          Text('News'),
+          Text('News'
+          ),
           Text(
             'Cloud',
             style: TextStyle(
