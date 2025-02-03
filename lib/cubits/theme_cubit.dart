@@ -7,6 +7,7 @@ class ThemeCubit extends Cubit <ThemeState> {
 
     bool isLight = true;
    toggleTheme() {
-    isLight ? emit(DarkThemeState()) : emit(LightThemeState());
+    isLight ? emit(LightThemeState()) : emit(DarkThemeState());
+    isLight = !isLight ;
   }
 }

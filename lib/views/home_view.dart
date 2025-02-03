@@ -10,6 +10,7 @@ class HomeView extends StatelessWidget {
     return const Scaffold(
       appBar: MainAppBar(
         mainAxisAlignment: MainAxisAlignment.center,
+        isHomeView: true,
       ),
       body:  HomeViewBody(),
     );

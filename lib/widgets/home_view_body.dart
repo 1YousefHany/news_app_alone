@@ -16,7 +16,8 @@ class HomeViewBody extends StatelessWidget {
       child:  CustomRefreshIndicator(
         categoryType: 'general',
         context: context,
-        child: const CustomScrollView(
+        child:  const CustomScrollView(
+          physics: BouncingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(child: CategoriesList()),
             SliverToBoxAdapter(
