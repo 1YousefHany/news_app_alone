@@ -32,7 +32,7 @@ class NewsAppAlone extends StatefulWidget {
 class _NewsAppAloneState extends State<NewsAppAlone> {
   @override
   void initState() {
-BlocProvider.of<ThemeCubit>(context).toggleTheme();
+    BlocProvider.of<ThemeCubit>(context).loadTheme();
     super.initState();
   }
   @override
