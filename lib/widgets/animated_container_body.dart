@@ -19,25 +19,22 @@ class AnimatedContainerBody extends StatelessWidget {
     );
   }
 
-  Row theTwoIcons(double opacity, BuildContext context) {
-    return Row(
-        spacing: 20,
-        children: [
-          Opacity(
+  dynamic theTwoIcons(double opacity, BuildContext context) {
+    return isLight
+        ? Opacity(
             opacity: 1 - opacity,
             child: const Icon(
               Icons.light_mode,
               color: Colors.yellow,
             ),
-          ),
-          Opacity(
+          )
+        : Opacity(
             opacity: opacity,
             child: Icon(
               Icons.dark_mode_outlined,
               color: Theme.of(context).iconTheme.color,
             ),
-          )
-        ],
-      );
+          );
   }
 }
+
