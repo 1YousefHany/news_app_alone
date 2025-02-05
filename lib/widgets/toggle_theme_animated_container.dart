@@ -7,24 +7,26 @@ class ToggleThemeAnimatedContainer extends StatelessWidget {
     super.key,
     required this.state,
   });
-
   final dynamic state;
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      margin: const EdgeInsets.only(left: 24, top: 12, bottom: 8 ,right: 24),
-      padding: const EdgeInsets.only(left: 8, right: 6),
+      margin: const EdgeInsets.only(left: 8, top: 12, bottom: 8 ,right: 24),
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
-      decoration: BoxDecoration(
-        color: state is DarkThemeState
-            ? Theme.of(context).primaryColorDark
-            : Theme.of(context).primaryColorLight,
-        borderRadius: BorderRadius.circular(16),
-      ),
+      decoration: animatedContainerDecoration(context),
       child: AnimatedContainerBody(
         isLight: state is LightThemeState,
       ),
+    );
+  }
+
+  BoxDecoration animatedContainerDecoration(BuildContext context) {
+    return BoxDecoration(
+      color: state is DarkThemeState
+          ? Theme.of(context).primaryColorDark
+          : Theme.of(context).primaryColorLight,
+      borderRadius: BorderRadius.circular(16),
     );
   }
 }

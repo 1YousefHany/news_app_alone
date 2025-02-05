@@ -4,7 +4,7 @@ import 'package:news_app_alone/cubits/theme_cubit.dart';
 import 'package:news_app_alone/widgets/toggle_theme_animated_container.dart';
 
 class ToggleThemeButton extends StatelessWidget {
-  const ToggleThemeButton({super.key});
+  const ToggleThemeButton({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +15,7 @@ class ToggleThemeButton extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
           return ToggleThemeAnimatedContainer(
+
             state: state,
           );
         },

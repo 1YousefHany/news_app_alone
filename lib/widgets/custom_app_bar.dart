@@ -14,9 +14,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       forceMaterialTransparency: true,
       title: Text(
         appBarTitle,
-        style:  const TextStyle(
+        style:   TextStyle(
           fontSize: 24,
           fontFamily: 'Playfair Display',
+          color: Theme.of(context).textTheme.titleLarge!.color ?? Colors.black,
         ),
       ),
     );

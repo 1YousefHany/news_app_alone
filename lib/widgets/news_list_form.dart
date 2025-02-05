@@ -26,6 +26,7 @@ class NewsListForm extends StatelessWidget {
             text: article.title,
             fontSize: 18,
             fontWeight: FontWeight.w500,
+            color: Theme.of(context).textTheme.bodyLarge!.color ?? Colors.black ,
             maxLines: 2,
             textOverflow: TextOverflow.ellipsis,
           ),
