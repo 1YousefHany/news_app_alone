@@ -21,10 +21,12 @@ class CategoriesList extends StatelessWidget {
     return SizedBox(
       height: 110,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
           itemBuilder: (context , index) {
-            return  CategoryCard(categoryModel: categories[index],);
+            return CategoryCard(categoryModel: categories[index],
+            );
           }),
     );
   }

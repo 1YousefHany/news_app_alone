@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_floating_action_button.dart';
 import '../widgets/home_view_body.dart';
 import '../widgets/main_app_bar.dart';
 
@@ -8,14 +9,13 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: MainAppBar(
+      appBar:  MainAppBar(
         mainAxisAlignment: MainAxisAlignment.center,
         isHomeView: true,
       ),
       body:  HomeViewBody(),
+      floatingActionButton:  CustomFloatingActionButton(),
     );
   }
 }
-
-
 
