@@ -14,22 +14,29 @@ class CustomRetryButton extends StatelessWidget {
     return SizedBox(
       height: 50,
       width: 150,
-      child: ElevatedButton(
+      child: TextButton(
         onPressed: () {
-          BlocProvider.of<GetNewsCubit>(context).fetchNews(categoryType: categoryType);
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.black,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-
-        ),
-        child: const CustomText(
-          text: 'Retry',
-          color: kPrimaryColor,
-          fontWeight: FontWeight.w500,
-          fontSize: 16,
-        ),
+           BlocProvider.of<GetNewsCubit>(context).fetchNews(categoryType: categoryType);
+         },
+        style: _buttonStyle(),
+        child: _retryText(),
       ),
     );
+  }
+
+  CustomText _retryText() {
+    return const CustomText(
+        text: 'Retry',
+        color: kPrimaryColor,
+        fontWeight: FontWeight.w500,
+        fontSize: 16,
+      );
+  }
+
+  ButtonStyle _buttonStyle() {
+    return TextButton.styleFrom(
+        backgroundColor: Colors.black,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      );
   }
 }
