@@ -32,11 +32,11 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
           );
         } else if (state is GetNewsNetWorkFailure) {
           debugPrint(state.errMessage);
-          return  HandleFailureState(message: state.errMessage,categoryType: widget.categoryType,
+          return  HandleNetworkFailure(message: state.errMessage,categoryType: widget.categoryType,
           );
         } else if (state is GetNewsFailureState){
           debugPrint(state.errMessage);
-          return  HandleFailureState(message: state.errMessage,categoryType: widget.categoryType,
+          return  HandleNetworkFailure(message: state.errMessage,categoryType: widget.categoryType,
           );
         }
         else{

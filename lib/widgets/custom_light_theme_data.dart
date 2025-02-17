@@ -9,6 +9,7 @@ ThemeData customLightThemeData() {
     ),
       primaryColorLight: const Color(0xff664B00),
       iconTheme: const IconThemeData(color: Colors.black),
+    primaryIconTheme: const IconThemeData(color: kPrimaryColor),
     textTheme: const TextTheme(
       titleLarge: TextStyle(color: Colors.black),
     ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:news_app_alone/widgets/custom_retry_button.dart';
 import 'package:news_app_alone/widgets/custom_text.dart';
 
-class HandleFailureState extends StatelessWidget {
-  const HandleFailureState({super.key, required this.message, required this.categoryType});
+class HandleNetworkFailure extends StatelessWidget {
+  const HandleNetworkFailure({super.key, required this.message, required this.categoryType});
 
   final String message ;
   final String categoryType ;
@@ -17,7 +17,7 @@ class HandleFailureState extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           spacing: 12,
           children: [
-            CustomText(text: message),
+            CustomText(text: message,color: Theme.of(context).textTheme.bodyLarge!.color ?? Colors.black, ),
              CustomRetryButton(categoryType: categoryType,
              ),
           ],
