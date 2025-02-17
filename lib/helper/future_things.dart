@@ -7,4 +7,4 @@
 
 //refresh ; 👌
 
-// try to show the cards on scroll up ; or something instead;
+// try to show the cards on scrolling up ; or something instead; 👌FAB
