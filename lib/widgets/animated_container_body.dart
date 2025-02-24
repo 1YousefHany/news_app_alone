@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class AnimatedContainerBody extends StatelessWidget {
   const AnimatedContainerBody({
     super.key,
-    required this.isLight,
+    required this.isLight,  this.lightIcon,  this.darkIcon,
   });
 
   final bool isLight;
-
+  final dynamic lightIcon,darkIcon;
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
@@ -23,17 +23,11 @@ class AnimatedContainerBody extends StatelessWidget {
     return isLight
         ? Opacity(
             opacity: 1 - opacity,
-            child: const Icon(
-              Icons.light_mode,
-              color: Colors.yellow,
-            ),
+            child: lightIcon
           )
         : Opacity(
             opacity: opacity,
-            child: Icon(
-              Icons.dark_mode_outlined,
-              color: Theme.of(context).iconTheme.color,
-            ),
+            child: darkIcon
           );
   }
 }

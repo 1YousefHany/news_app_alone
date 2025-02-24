@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_alone/widgets/search_icon_builder.dart';
 import 'package:news_app_alone/widgets/main_app_bar_title.dart';
 import 'package:news_app_alone/widgets/toggle_theme_button.dart';
 
@@ -15,9 +16,10 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      titleSpacing: 0,
       leadingWidth: 80,
       leading: isHomeView ? const ToggleThemeButton() : null,
+      actions: const [ SearchIconBuilder()
+      ],
       bottom: bottom,
       forceMaterialTransparency: true,
       title: mainAppBarTitle(context, mainAxisAlignment),
@@ -27,3 +29,4 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
+

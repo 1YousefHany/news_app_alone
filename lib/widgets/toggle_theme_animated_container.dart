@@ -1,31 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_alone/cubits/theme_cubit.dart';
 import 'package:news_app_alone/widgets/animated_container_body.dart';
 
-class ToggleThemeAnimatedContainer extends StatelessWidget {
-  const ToggleThemeAnimatedContainer({
+class ToggleIconThemeAnimatedContainer extends StatelessWidget {
+  const ToggleIconThemeAnimatedContainer({
     super.key,
-    required this.state,
+    required this.isLight,
+     this.lightIcon,
+     this.darkIcon,
+    this.needPadding = false,
+    this.paddingEdgeInsets,
+    this.marginEdgeInsets,
+
   });
-  final dynamic state;
+  final bool isLight;
+  final dynamic lightIcon, darkIcon;
+  final bool needPadding;
+  final EdgeInsets? paddingEdgeInsets;
+  final EdgeInsets? marginEdgeInsets;
+
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      margin: const EdgeInsets.only(left: 8, top: 12, bottom: 8 ,right: 24),
+      margin: marginEdgeInsets,
+      padding: needPadding ? paddingEdgeInsets : null,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
       decoration: animatedContainerDecoration(context),
       child: AnimatedContainerBody(
-        isLight: state is LightThemeState,
+        isLight: isLight,
+        lightIcon: lightIcon,
+        darkIcon: darkIcon,
+
       ),
     );
   }
 
   BoxDecoration animatedContainerDecoration(BuildContext context) {
     return BoxDecoration(
-      color: state is DarkThemeState
-          ? Theme.of(context).primaryColorDark
-          : Theme.of(context).primaryColorLight,
+      color: isLight
+          ? Theme.of(context).primaryColorLight
+          : Theme.of(context).primaryColorDark,
       borderRadius: BorderRadius.circular(16),
     );
   }
