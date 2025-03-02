@@ -4,9 +4,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/rendering.dart';
 
 class ScrollCubit extends Cubit<bool> {
+  ScrollCubit() : super(false);
+
   final ScrollController scrollController = ScrollController();
   Timer? _hideButtonTimer;
-  ScrollCubit() : super(false);
+
 
   void scrollToTop() {
     scrollController.animateTo(0.0,

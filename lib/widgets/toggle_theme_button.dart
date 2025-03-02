@@ -15,7 +15,7 @@ class ToggleThemeButton extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
           return ToggleIconThemeAnimatedContainer(
-            marginEdgeInsets: const EdgeInsets.only(left: 8, top: 12, bottom: 8, right: 30),
+            marginEdgeInsets: const EdgeInsets.only(left: 12, top: 12, bottom: 8,right: 22 ),
             lightIcon: const Icon(Icons.light_mode,color: Colors.yellow,
             ),
             darkIcon: const Icon(Icons.dark_mode_outlined),

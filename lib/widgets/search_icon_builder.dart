@@ -17,8 +17,7 @@ class SearchIconBuilder extends StatelessWidget {
           width: 50,
           child: ToggleIconThemeAnimatedContainer(
             marginEdgeInsets:
-                const EdgeInsets.only(left: 1, top: 16, bottom: 5, right: 8),
-            needPadding: true,
+                const EdgeInsets.only(left: 1, top: 16, bottom: 5, right: 12),
             lightIcon: _lightSearchIcon(),
             darkIcon: _darkSearchIcon(),
             isLight: state is LightThemeState ? true : false,

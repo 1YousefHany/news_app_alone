@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_alone/widgets/arrow_back_icon.dart';
 import 'package:news_app_alone/widgets/custom_linear_progress_indicator.dart';
 import 'package:news_app_alone/widgets/main_app_bar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -56,6 +57,7 @@ class _NewsWebViewState extends State<NewsWebView> {
     return Scaffold(
       appBar:
          MainAppBar(
+           leading: const ArrowBackIcon(),
           bottom : loadingProgress < 100
         ? PreferredSize(
         preferredSize: const Size.fromHeight(3),

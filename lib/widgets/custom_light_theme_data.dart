@@ -7,6 +7,7 @@ ThemeData customLightThemeData() {
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: kPrimaryColor
     ),
+      focusColor: Colors.black,
       primaryColorLight: const Color(0xff664B00),
       iconTheme: const IconThemeData(color: Colors.black),
     primaryIconTheme: const IconThemeData(color: kPrimaryColor),

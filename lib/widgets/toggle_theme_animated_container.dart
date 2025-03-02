@@ -7,14 +7,12 @@ class ToggleIconThemeAnimatedContainer extends StatelessWidget {
     required this.isLight,
      this.lightIcon,
      this.darkIcon,
-    this.needPadding = false,
     this.paddingEdgeInsets,
     this.marginEdgeInsets,
 
   });
   final bool isLight;
   final dynamic lightIcon, darkIcon;
-  final bool needPadding;
   final EdgeInsets? paddingEdgeInsets;
   final EdgeInsets? marginEdgeInsets;
 
@@ -22,7 +20,7 @@ class ToggleIconThemeAnimatedContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       margin: marginEdgeInsets,
-      padding: needPadding ? paddingEdgeInsets : null,
+      padding:  paddingEdgeInsets ,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
       decoration: animatedContainerDecoration(context),

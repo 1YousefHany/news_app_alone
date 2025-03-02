@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_alone/cubits/get_news_cubit.dart';
+import 'package:news_app_alone/cubits/search_mode_cubit.dart';
 import 'package:news_app_alone/models/category_model.dart';
 import 'package:news_app_alone/views/categories_card_view.dart';
 import 'custom_text.dart';
@@ -24,6 +25,7 @@ class CategoryCard extends StatelessWidget {
               )
           ),
         );
+        BlocProvider.of<SearchModeCubit>(context).closeSearchMode();
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 16.0),
